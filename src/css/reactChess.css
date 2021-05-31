@@ -1,3 +1,8 @@
 #react-secondary-header {
   background-image: url("./../assets/board-background.png");
 }
+
+#advancedConfigStartGameBtn,
+#closeAdvancedConfigModalBtn {
+  margin: 0.25rem;
+}
