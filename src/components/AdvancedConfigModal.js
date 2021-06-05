@@ -5,7 +5,7 @@ import EventEmitter from "reactjs-eventemitter";
 const AdvancedConfigModal = (props) => {
   Modal.setAppElement("body");
   const [fen, setFen] = useState("");
-  const [orientation, setOrientation] = useState("White");
+  const [orientation, setOrientation] = useState("white");
   const [selfPlay, setSelfPlay] = useState(false);
   const closeModal = () => {
     EventEmitter.dispatch("hideAdvancedConfigModal", {});
@@ -53,7 +53,7 @@ const AdvancedConfigModal = (props) => {
                   type={"radio"}
                   name={"inputOrientation"}
                   id={"inputRadioWhite"}
-                  value={"White"}
+                  value={"white"}
                   checked
                   onChange={(e) => setOrientation(e.target.value)}
                 />
@@ -71,7 +71,7 @@ const AdvancedConfigModal = (props) => {
                   type={"radio"}
                   name={"inputOrientation"}
                   id={"inputRadioBlack"}
-                  value={"Black"}
+                  value={"black"}
                   onChange={(e) => setOrientation(e.target.value)}
                 />
                 <label

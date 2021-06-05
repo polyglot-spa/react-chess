@@ -1,9 +1,16 @@
-import React, { useRef, forwardRef, useImperativeHandle } from "react";
+import React, {
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from "react";
 import "chessboard-element";
 import Chess from "chess.js";
 
 const ChessboardWrapper = forwardRef((props, ref) => {
   const chessboardRef = useRef();
+  const [orientation, setOrientation] = useState("white");
+  const [draggablePieces, setDraggablePieces] = useState(false);
   let playingAdvancedGame = false;
   let game, randomMoveInterval;
   const makeRandomMove = () => {
@@ -75,13 +82,11 @@ const ChessboardWrapper = forwardRef((props, ref) => {
         } else {
           chessboardRef.current.start();
         }
-        if (data.orientation === "Black") {
-          chessboardRef.current.setAttribute("orientation", "black");
-        }
+        setOrientation(data.orientation);
         if (data.selfPlay) {
           randomMoveInterval = window.setInterval(makeRandomMove, 500);
         } else {
-          chessboardRef.current.setAttribute("draggable-pieces", "");
+          setDraggablePieces(true);
           addEventListeners();
           if (game.turn() === "b") {
             window.setTimeout(makeRandomMove, 500);
@@ -91,14 +96,18 @@ const ChessboardWrapper = forwardRef((props, ref) => {
     },
     quickStartGame: () => {
       game = new Chess();
-
       chessboardRef.current.start();
-      chessboardRef.current.setAttribute("draggable-pieces", "");
-
+      setDraggablePieces(true);
       addEventListeners();
     },
   }));
-  return <chess-board ref={chessboardRef} />;
+  return (
+    <chess-board
+      ref={chessboardRef}
+      orientation={orientation}
+      draggable-pieces={draggablePieces}
+    />
+  );
 });
 
 export default ChessboardWrapper;

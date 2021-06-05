@@ -1,15 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import chessIcon from "../assets/Centaur.png";
 import reactIcon from "../assets/React-icon.svg";
 import EventEmitter from "reactjs-eventemitter";
 
 const ReactChessHeader = () => {
+  const [disabled, setDisabled] = useState(false);
   const quickStartGame = () => {
     EventEmitter.dispatch("quickStartGame", {});
+    setDisabled(true);
   };
 
   const showAdvancedConfigModal = () => {
     EventEmitter.dispatch("showAdvancedConfigModal", {});
+    setDisabled(true);
   };
 
   return (
@@ -24,6 +27,8 @@ const ReactChessHeader = () => {
               type={"button"}
               className={"btn btn-light w-100 btn-sm"}
               onClick={quickStartGame}
+              id={"quickStartGameBtn"}
+              disabled={disabled}
             >
               Quick Start
             </button>
@@ -31,6 +36,8 @@ const ReactChessHeader = () => {
               type={"button"}
               className={"btn btn-light w-100 btn-sm"}
               onClick={showAdvancedConfigModal}
+              id={"showAdvancedConfigModalBtn"}
+              disabled={disabled}
             >
               Advanced Config
             </button>
