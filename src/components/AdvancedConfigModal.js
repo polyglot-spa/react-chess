@@ -8,9 +8,9 @@ const AdvancedConfigModal = (props) => {
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     content: {
-      width: "300px",
+      maxWidth: "300px",
       height: "475px",
-      margin: "auto",
+      margin: "0 auto",
     },
   };
   Modal.setAppElement("body");
