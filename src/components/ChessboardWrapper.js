@@ -102,11 +102,14 @@ const ChessboardWrapper = forwardRef((props, ref) => {
     },
   }));
   return (
-    <chess-board
-      ref={chessboardRef}
-      orientation={orientation}
-      draggable-pieces={draggablePieces}
-    />
+    <div id={"chessBoardBackground"}>
+      <chess-board
+        id={"reactChessBoard"}
+        ref={chessboardRef}
+        orientation={orientation}
+        draggable-pieces={draggablePieces}
+      />
+    </div>
   );
 });
 

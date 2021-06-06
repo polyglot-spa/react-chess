@@ -17,7 +17,7 @@ const ReactChessHeader = () => {
 
   return (
     <Fragment>
-      <header className={"container-fluid"} id={"react-secondary-header"}>
+      <header className={"container-fluid"} id={"reactSecondaryHeader"}>
         <div className={"row p-2"}>
           <div className={"col-3"}>
             <img className={"w-100 mt-3"} alt={"React logo"} src={reactIcon} />
