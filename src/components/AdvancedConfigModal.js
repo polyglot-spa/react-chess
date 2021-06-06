@@ -3,6 +3,16 @@ import Modal from "react-modal";
 import EventEmitter from "reactjs-eventemitter";
 
 const AdvancedConfigModal = (props) => {
+  const customStyles = {
+    overlay: {
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    content: {
+      width: "300px",
+      height: "475px",
+      margin: "auto",
+    },
+  };
   Modal.setAppElement("body");
   const [fen, setFen] = useState("");
   const [orientation, setOrientation] = useState("white");
@@ -19,7 +29,11 @@ const AdvancedConfigModal = (props) => {
     EventEmitter.dispatch("advancedConfigStartGame", data);
   };
   return (
-    <Modal isOpen={props.isOpen} contentLabel={"Advanced Config Modal"}>
+    <Modal
+      isOpen={props.isOpen}
+      contentLabel={"Advanced Config Modal"}
+      style={customStyles}
+    >
       <div className={"modal-container"}>
         <div className={"modal-header"}>
           <slot name={"header"}>Advanced Config Options</slot>

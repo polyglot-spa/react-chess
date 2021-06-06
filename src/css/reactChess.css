@@ -15,3 +15,7 @@
 #chessBoardBackground {
   background-image: url("./../assets/board-background.png");
 }
+
+.form-check {
+  padding-top: 0.4rem;
+}
