@@ -3,8 +3,8 @@ const singleSpaDefaults = require("webpack-config-single-spa-react");
 
 module.exports = (webpackConfigEnv, argv) => {
   const defaultConfig = singleSpaDefaults({
-    orgName: "carter-website",
-    projectName: "react-cw",
+    orgName: "polyglot-spa",
+    projectName: "react-chess",
     webpackConfigEnv,
     argv,
   });

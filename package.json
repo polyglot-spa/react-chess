@@ -1,5 +1,5 @@
 {
-  "name": "@carter-website/react-cw",
+  "name": "@polyglot-spa/react-chess",
   "scripts": {
     "start": "webpack serve --port 5003",
     "start:standalone": "webpack serve --port 5003 --env standalone",
