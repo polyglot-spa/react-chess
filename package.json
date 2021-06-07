@@ -1,5 +1,8 @@
 {
   "name": "@polyglot-spa/react-chess",
+  "version": "0.1.0",
+  "description": "The React micro-front end for Polyglot-Spa, the custom element chess-board is at its heart.",
+  "private": true,
   "scripts": {
     "start": "webpack serve --port 5003",
     "start:standalone": "webpack serve --port 5003 --env standalone",
@@ -55,5 +58,10 @@
     "react-dom": "^17.0.1",
     "react-modal": "^3.13.1",
     "reactjs-eventemitter": "^1.0.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/polyglot-spa/react-chess.git"
+  },
+  "keywords": ["react", "custom elements", "micro-front end"]
 }
