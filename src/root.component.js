@@ -16,6 +16,33 @@ export default function Root() {
   };
 
   useEffect(() => {
+    let emitter;
+    let getWindowEmitterMaxTriers = null;
+
+    const attachEmitter = () => {
+      return new Promise((resolve, reject) => {
+        waitForEmitterOnWindow(resolve, reject);
+      });
+    };
+
+    const waitForEmitterOnWindow = (resolve, reject) => {
+      if (!getWindowEmitterMaxTriers) {
+        getWindowEmitterMaxTriers = 10;
+      }
+      if (!window.emitter) {
+        if (getWindowEmitterMaxTriers > 0) {
+          setTimeout(waitForEmitterOnWindow.bind(this, resolve, reject), 300);
+        }
+      } else {
+        resolve();
+      }
+    };
+
+    attachEmitter().then(() => {
+      emitter = window.emitter;
+      emitter.emit("hello", "React MFE");
+    });
+
     EventEmitter.subscribe("quickStartGame", (event) => {
       chessboardRef.current.quickStartGame();
     });
